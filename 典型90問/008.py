@@ -2,48 +2,29 @@ from bisect import bisect_left
 
 n = int(input())
 s = input()
-a = []
-t = []
-c = []
-o = []
-d = []
-e = []
-r = []
+a = 0
+t = 0
+c = 0
+o = 0
+d = 0
+e = 0
+r = 0
 
 for i in range(n):
   if s[i] == "a":
-    a.append(i)
+    a += 1
   elif s[i] == "t":
-    t.append(i)
+    t += a
   elif s[i] == "c":
-    c.append(i)
+    c += t
   elif s[i] == "o":
-    o.append(i)
+    o += c
   elif s[i] == "d":
-    d.append(i)
+    d += o
   elif s[i] == "e":
-    e.append(i)
+    e += d
   elif s[i] == "r":
-    r.append(i)
+    r += e
 
-ans = 0
+print(r%(10**9+7))
 
-for i1 in a:
-  kosuu = 1
-  kosuu *= bisect_left(t, i1)
-  for i2 in t[bisect_left(t, i1):]:
-    
-      for i3 in c:
-        if i3 > i2:
-          for i4 in o:
-            if i4 > i3:
-              for i5 in d:
-                if i5 > i4:
-                  for i6 in e:
-                    if i6 > i5:
-                      for i7 in r:
-                        if i7 > i6:
-                          ans += 1 
-
-
-print(ans)
