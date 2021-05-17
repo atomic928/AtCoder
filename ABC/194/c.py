@@ -1,9 +1,11 @@
 n = int(input())
 a = list(map(int,input().split()))
-ans = 0
+ans = a[0]**2*(n-1)
+pre = a[0]
 
-for i in range(2, n+1):
-  for j in range(1, i):
-    ans += (a[i-1]-a[j-1])**2
+for i in range(1, n):
+  ans += a[i]**2*(n-1)
+  ans -= 2*a[i]*pre
+  pre += a[i]
 
 print(ans)
