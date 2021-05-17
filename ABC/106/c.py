@@ -11,3 +11,4 @@ for i in s:
   if count == k:
     print(i)
     exit()
+
