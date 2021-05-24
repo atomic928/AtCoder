@@ -15,14 +15,18 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 #行列
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 
-n = II()
-abc = LLI(n)
-dp = [[0,0,0] for _ in range(10**6)]
+N, W = MI()
+weight = [0]*N
+value = [0]*N
+dp = [[0]*100001 for _ in range(101)]
 
-for i in range(n):
-  for j in range(3):
-    for k in range(3):
-      if j == k: continue
-      dp[i+1][k] = max(dp[i+1][k], dp[i][j]+abc[i][k])
+for i in range(N):
+  w, v = MI()
+  weight[i] = w
+  value[i] = v
+  for j in range(W+1):
+    if j - weight[i] >= 0:
+      dp[i+1][j] = max(dp[i+1][j], dp[i][j-weight[i]]+value[i])
+    dp[i+1][j] = max(dp[i+1][j], dp[i][j])
 
-print(max(dp[n]))
+print(dp[N][W])
