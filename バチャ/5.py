@@ -15,15 +15,17 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 #行列
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 
-n = II()
-ans = list("indeednow")
-ans.sort()
+n, m = MI()
+a = [SI() for _ in range(n)]
+b = [SI() for _ in range(m)]
 
-for i in range(n):
-  s = SI()
-  s.sort()
-
-  if ans == s:
-    print("YES")
-  else:
-    print("NO")
+for i in range(n-m+1):
+  for j in range(n-m+1):
+    flag = 1
+    for k in range(m):
+      for l in range(m):
+        if b[k][l] != a[i+k][j+l]:
+          flag = 0
+    if flag:
+      sys.exit(print("Yes"))
+print("No")

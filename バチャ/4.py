@@ -15,15 +15,25 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 #行列
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 
-n = II()
-ans = list("indeednow")
-ans.sort()
+x,y,r = MI()
+x2,y2,x3,y3 = MI()
 
-for i in range(n):
-  s = SI()
-  s.sort()
+#四角の中に〇があるか
+if x2 <= x-r and x+r <= x3 and y2 <= y-r and y+r <= y3:
+  print("NO")
+  print("YES")
+  exit()
 
-  if ans == s:
-    print("YES")
-  else:
-    print("NO")
+#逆
+dist = [(x2-x)**2+(y2-y)**2, (x2-x)**2+(y3-y)**2, (x3-x)**2+(y2-y)**2, (x3-x)**2+(y3-y)**2]
+
+for i in dist:
+  if i > r**2:
+    break
+else:
+  print("YES")
+  print("NO")
+  exit()
+
+print("YES")
+print("YES")

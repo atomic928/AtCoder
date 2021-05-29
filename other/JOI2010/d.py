@@ -14,16 +14,23 @@ def MS(): return map(str, sys.stdin.readline().rstrip().split())
 def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 #行列
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
+#文字の行列
+def LSI(rows_number): return [SI() for _ in range(rows_number)]
 
-n = II()
-ans = list("indeednow")
-ans.sort()
+N = II()
+A = LI()
 
-for i in range(n):
-  s = SI()
-  s.sort()
+dp = [[0]*21 for _ in range(N)]
+dp[0][0] = 1
 
-  if ans == s:
-    print("YES")
-  else:
-    print("NO")
+for i in range(N-1):
+  for j in range(21):
+    if j+A[i] < 21:
+      dp[i+1][j] += dp[i][j+A[i]]
+    if j-A[i] >= 0:
+      dp[i+1][j] += dp[i][j-A[i]]
+    
+if A[0] == 0:
+  print(dp[N-1][A[-1]]//2)
+else:
+  print(dp[N-1][A[-1]])

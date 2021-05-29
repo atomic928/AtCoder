@@ -1,5 +1,5 @@
 import sys
-
+ 
 #input()
 def I(): return sys.stdin.readline().rstrip()
 #list(input())
@@ -14,16 +14,19 @@ def MS(): return map(str, sys.stdin.readline().rstrip().split())
 def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 #行列
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
-
-n = II()
-ans = list("indeednow")
-ans.sort()
-
-for i in range(n):
-  s = SI()
-  s.sort()
-
-  if ans == s:
-    print("YES")
-  else:
-    print("NO")
+#文字の行列
+def LSI(rows_number): return [SI() for _ in range(rows_number)]
+ 
+W = II()
+N,K = MI()
+ 
+dp = [[0]*(W+1) for _ in range(K+1)]
+ 
+for _ in range(N):
+  a,b = MI()
+  for i in range(K,0,-1): #iを0から回すと同じ写真を入れることになる
+    for j in range(W+1):
+      if j -a >= 0:
+        dp[i][j] = max(dp[i][j], dp[i-1][j-a]+b)
+ 
+print(dp[K][W])
