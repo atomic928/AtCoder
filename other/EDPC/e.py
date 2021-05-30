@@ -18,14 +18,17 @@ def LLI(rows_number): return [LI() for _ in range(rows_number)]
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
 
 N, W = MI()
-dp = [[0]*(W+1) for _ in range(N+1)]
+#価値vを達成するためのwの最小値を保存
+dp = [[10**9+1]*(100001) for _ in range(N+1)]
+dp[0][0] = 0
 
 for i in range(N):
-  w, v = MI()
-  for j in range(W+1):
-    if j - w >= 0:
-      dp[i+1][j] = max(dp[i][j], dp[i][j-w] + v)
-    else:
-      dp[i+1][j] = max(dp[i+1][j], dp[i][j])
-
-print(dp[N][W])
+  a, b = MI()
+  for j in range(100001):
+    dp[i+1][j] = dp[i][j]
+    if dp[i][j-b] != 10**9+1:
+      dp[i+1][j] = min(dp[i][j], dp[i][j-b]+a)
+    
+for i in range(100000, -1,-1):
+  if dp[N][i] <= W:
+    sys.exit(print(i))
