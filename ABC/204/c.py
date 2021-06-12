@@ -16,3 +16,26 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+sys.setrecursionlimit(10000)
+
+N, M = MI()
+paths = [[] for _ in range(N)]
+
+for _ in range(M):
+  a,b = MI()
+  paths[a-1].append(b-1)
+
+def dfs(x):
+  if check[x]: return
+  check[x] = 1
+  for xx in paths[x]: dfs(xx)
+
+ans = 0
+
+for i in range(N):
+  check = [0]*N
+  dfs(i)
+  ans += sum(check)
+  
+print(ans)
