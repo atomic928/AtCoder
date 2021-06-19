@@ -17,12 +17,11 @@ def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
 
-name = set()
+N = II()
+check = [[0]*(N+1) for _ in range(N+1)]
 
-n = II()
-
-for i in range(n):
-  s = I()
-  if s not in name:
-    print(i+1)
-    name.add(s)
+for i in range(N):
+  lx,ly,rx,ry = MI()
+  check[lx-1][ly-1] = 1
+  check[rx][ly-1] = -1
+  check[rx-1][ry-1] = 1
