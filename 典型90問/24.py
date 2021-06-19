@@ -16,3 +16,14 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+n,k = MI()
+a = LI()
+b = LI()
+
+gap = 0
+
+for i in range(n):
+  gap += abs(a[i]-b[i])
+
+print("Yes" if (k-gap)%2 == 0 and k >= gap else "No")

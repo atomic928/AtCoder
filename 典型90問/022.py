@@ -16,3 +16,13 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+a,b,c = MI()
+
+from math import gcd
+x1 = gcd(a,b)
+x = gcd(x1,c)
+if x == 1:
+  print(a+b+c-3)
+else:
+  print((a+b+c)//x-3)
