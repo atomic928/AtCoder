@@ -16,3 +16,47 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+a,b,c = MI()
+if a >= 0 and b >= 0:
+  if a < b:
+    print("<")
+  elif a > b:
+    print(">")
+  else:
+    print("=")
+elif a < 0 and b >= 0:
+  if c%2 == 0:
+    if -a < b:
+      print("<")
+    elif -a > b:
+      print(">")
+    else:
+      print("=")
+  else:
+    print("<")
+elif a >= 0 and b < 0:
+  if c%2 == 0:
+    if a < -b:
+      print("<")
+    elif a > -b:
+      print(">")
+    else:
+      print("=")
+  else:
+    print(">")
+else:
+  if c%2 == 0:
+    if -a < -b:
+      print("<")
+    elif -a > -b:
+      print(">")
+    else:
+      print("=")
+  else:
+    if a < b:
+      print("<")
+    elif a > b:
+      print(">")
+    else:
+      print("=")
