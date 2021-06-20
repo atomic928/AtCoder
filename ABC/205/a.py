@@ -17,14 +17,5 @@ def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
 
-import math
-
-n = II()
-n = math.floor(1.08*n)
-
-if n == 206:
-  print("so-so")
-elif n > 206:
-  print(":(")
-else:
-  print("Yay!")
+a,b = MI()
+print(a*b/100)

@@ -17,46 +17,16 @@ def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
 
-a,b,c = MI()
-if a >= 0 and b >= 0:
-  if a < b:
-    print("<")
-  elif a > b:
-    print(">")
-  else:
-    print("=")
-elif a < 0 and b >= 0:
-  if c%2 == 0:
-    if -a < b:
-      print("<")
-    elif -a > b:
-      print(">")
-    else:
-      print("=")
-  else:
-    print("<")
-elif a >= 0 and b < 0:
-  if c%2 == 0:
-    if a < -b:
-      print("<")
-    elif a > -b:
-      print(">")
-    else:
-      print("=")
-  else:
-    print(">")
-else:
-  if c%2 == 0:
-    if -a < -b:
-      print("<")
-    elif -a > -b:
-      print(">")
-    else:
-      print("=")
-  else:
-    if a < b:
-      print("<")
-    elif a > b:
-      print(">")
-    else:
-      print("=")
+from collections import Counter
+
+n = II()
+a = LI()
+ans = n*(n-1)//2
+
+l = Counter(a)
+
+for i, v in l.items():
+  if v != 1:
+    ans -= v*(v-1)//2
+
+print(ans)

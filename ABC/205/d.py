@@ -1,4 +1,5 @@
 import sys
+import bisect
 
 #input()
 def I(): return sys.stdin.readline().rstrip()
@@ -17,51 +18,21 @@ def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
 
-from collections import defaultdict
+n,q = MI()
+a = LI()
+a.sort()
 
-N = II()
-A = LI()
+c = [0]*n
 
-rank = [1]*(2*10**5+1)
-par = [*range(2*10**5+1)]
+c[0] = a[0]-1
 
-def find(x):
-  if par[x] == x:
-    return x
+for i in range(1,n):
+  c[i] = c[i-1]+a[i]-a[i-1]-1
+
+for i in range(q):
+  k = II()
+  if k > c[n-1]:
+    print(a[n-1]+k-c[n-1])
   else:
-    par[x] = find(par[x])
-    return par[x]
-
-def unite(x, y):
-  x = find(x)
-  y = find(y)
-  if (x == y): return
-  #ランクの高いほうが親になるようにする
-  if rank[x] > rank[y]:
-    x,y = y,x
-  if rank[x] == rank[y]:
-    rank[y] += 1
-  par[x] = y
-
-def same(x, y):
-  return find(x) == find(y)
-
-replace = defaultdict(int)
-
-if N == 1:
-  sys.exit(print(0))
-
-ans = 0
-
-for i in range(N//2):
-  if A[i] == A[N-1-i]:
-    unite(A[i], A[N-1-i])
-  else:
-    if same(A[i],A[N-1-i]):
-      continue
-    else:
-      unite(A[i],A[N-1-i])
-      ans += 1
-
-
-print(ans)
+    INDEX = bisect.bisect_left(c,k)
+    print(k-c[INDEX]+a[INDEX]-1)

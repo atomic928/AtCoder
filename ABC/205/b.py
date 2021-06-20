@@ -18,12 +18,9 @@ def LLI(rows_number): return [LI() for _ in range(rows_number)]
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
 
 n = II()
+A = LI()
+a = [i for i in range(1, n+1)]
 
-if n == 1:
-  print(1)
-  exit()
+A.sort()
 
-for i in range(2, n):
-  if i*(i-1)//2 >= n:
-    print(i-1)
-    exit()
+print("Yes" if A == a else "No")
