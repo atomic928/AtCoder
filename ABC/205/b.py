@@ -16,3 +16,14 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+n = II()
+
+if n == 1:
+  print(1)
+  exit()
+
+for i in range(2, n):
+  if i*(i-1)//2 >= n:
+    print(i-1)
+    exit()
