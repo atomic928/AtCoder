@@ -16,3 +16,25 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+from collections import defaultdict
+
+N,K = MI()
+A = LI()
+
+check = defaultdict(int)
+start = 0
+ans = 0
+
+for stop in range(N):
+  check[A[stop]] += 1
+  while 1:
+    if len(check) <= K:
+      break
+    check[A[start]] -= 1
+    start += 1
+    if check[A[start-1]] == 0:
+      del check[A[start-1]]
+  ans = max(ans, stop-start+1)
+
+print(ans)
