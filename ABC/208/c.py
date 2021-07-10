@@ -16,3 +16,16 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+N,K = MI()
+a = LI()
+ans = [K//N]*N
+
+indices = [*range(N)]
+sorted_indices = sorted(indices, key = lambda i: a[i])
+
+for i in range(K-K//N*N):
+  ans[sorted_indices[i]] += 1
+
+for i in range(N):
+  print(ans[i])

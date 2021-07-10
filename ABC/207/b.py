@@ -16,3 +16,11 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+from math import ceil
+
+a,b,c,d = MI()
+if b >= c*d:
+  sys.exit(print(-1))
+
+print(a//(c*d-b) if a%(c*d-b) == 0 else a//(c*d-b)+1)

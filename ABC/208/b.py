@@ -16,3 +16,18 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+from math import factorial
+
+p = II()
+ans = 0
+kouka = 10
+
+while p != 0:
+  if p < factorial(kouka):
+    kouka -= 1
+    continue
+  p -= factorial(kouka)
+  ans += 1
+
+print(ans)

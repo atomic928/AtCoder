@@ -16,3 +16,16 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+n,q = MI()
+a = LI()
+plus = 0
+
+for i in range(q):
+  t,x,y = MI()
+  if t == 1:
+    a[(x-plus)%n-1],a[(y-plus)%n-1] = a[(y-plus)%n-1],a[(x-plus)%n-1]
+  elif t == 2:
+    plus += 1
+  else:
+    print(a[(x-plus)%n-1])
