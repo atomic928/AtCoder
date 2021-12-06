@@ -16,3 +16,15 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+s, t = MI()
+ans = 0
+
+for i in range(101):
+  for j in range(101):
+    for k in range(101):
+      if i+j+k > s: break
+      if i*j*k > t: break
+      ans += 1
+
+print(ans)

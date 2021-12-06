@@ -14,5 +14,28 @@ def MS(): return map(str, sys.stdin.readline().rstrip().split())
 def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 #行列
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
-#文字の行列
-def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+sys.setrecursionlimit(10**7)
+
+n = II()
+graph = [[] for _ in range(n)]
+ans = []
+
+for i in range(n-1):
+  a, b = MI()
+  graph[a-1].append(b)
+  graph[b-1].append(a)
+
+for i in range(n):
+  graph[i].sort()
+
+
+def dfs(cur, pre):
+  ans.append(cur)
+  for nex in graph[cur-1]:
+    if nex != pre:
+      dfs(nex, cur)
+      ans.append(cur)
+
+dfs(1,0)
+print(*ans)

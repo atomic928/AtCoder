@@ -15,13 +15,9 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 #行列
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 
-a = 0.01
-x = (10-10*a)/495
-ans = 0
+n,m = MI()
+abc = LLI(m)
 
-for i in range(1,10001):
-  a = 0.0001*i
-  x = (10-10*a)/495
-  ans = max(ans, 50*a+2500*x)
-
-print(ans)
+for i in range(2**n):
+  for j in range(n):
+    if ((i >> j) & 1):

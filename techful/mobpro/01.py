@@ -17,17 +17,15 @@ def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
 
-n = II()
-s = LI()
-t = LI()
+import math
 
-dp = [t] + [[0]*n for _ in range(n-1)]
+n,m = MI()
 
-for i in range(n):
-  dp[(i+1)%n] = dp[i]
-  for j in range(n):
-    if dp[(i+1)%n][j] > dp[i][(j-1)%n]+s[(j-1)%n]:
-      dp[(i+1)%n][j] = dp[i][(j-1)%n]+s[(j-1)%n]
+if n >= m:
+  print("Impossible")
+  exit()
+  
+fgap = 4*n
+gap = m-n
 
-for i in range(n):
-  print(dp[n-1][i])
+ans = ((fgap + gap - 1)//gap)

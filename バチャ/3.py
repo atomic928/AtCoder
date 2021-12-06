@@ -15,43 +15,16 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 #行列
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 
-h, w = MI()
-s = [SI() for _ in range(h)]
+from collections import Counter
  
-check = [[False]*w for _ in range(h)]
+s = input()
+t = input()
  
-for i in range(h):
-  for j in range(w):
-    if j != w-1 and i != h-1:
-      if s[i][j] == "#":
-        if s[i][j+1] == "#":
-          check[i][j] = True
-          check[i][j+1] = True
-        if s[i+1][j] == "#":
-          check[i][j] = True
-          check[i+1][j] = True
-      else:
-        check[i][j] = True
-    elif j != w-1:
-      if s[i][j] == "#":
-        if s[i][j+1] == "#":
-          check[i][j] = True
-          check[i][j+1] = True
-      else:
-        check[i][j] = True
-    elif i != h-1:
-      if s[i][j] == "#":
-        if s[i+1][j] == "#":
-          check[i][j] = True
-          check[i+1][j] = True
-      else:
-        check[i][j] = True
-    else:
-      if s[i][j] == ".":
-        check[i][j] = True
+S = [i for i in s]
+T = [i for i in t]
  
-for i in range(h):
-  if sum(check[i]) != w:
-    exit(print("No"))
- 
-print("Yes")
+X = [v for v in Counter(S).values()]
+Y = [v for v in Counter(T).values()]
+
+print(X)
+print(Y)

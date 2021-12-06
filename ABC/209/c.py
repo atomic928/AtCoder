@@ -16,3 +16,14 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+n = II()
+c = LI()
+c.sort()
+ans = 1
+
+for i in range(n):
+  ans *= c[i]-i
+  ans %= 10**9 + 7
+
+print(ans)

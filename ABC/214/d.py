@@ -15,4 +15,6 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 #行列
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
-def LSI(rows_number): return [SI() for _ in range(rows_number)]
+def LSI(rows_number): return [SI() for _ in range(rows_number)]]
+
+n = II()

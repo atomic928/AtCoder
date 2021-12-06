@@ -17,17 +17,29 @@ def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
 
-n = II()
-s = LI()
-t = LI()
+N,K = MI()
+ans = 0
 
-dp = [t] + [[0]*n for _ in range(n-1)]
+if K == 2:
+  ans += N
+  if N == 3:
+    ans += 6
+  elif N%2 == 0 and N >= 4:
+    ans += (((N//2)*(N//2-1))//2)*12
+  elif N%2 == 1 and N >= 4:
+    ans += (((N//2)*(N//2-1))//2)*6
+    ans += ((((N+1)//2)*((N+1)//2-1))//2)*6
+  if N == 5:
+    ans += 6
+  elif N%2 == 0 and N >= 6:
+    ans += (((N//2)*(N//2-1)*(N//2-2))//6)*12
+  elif N%2 == 1 and N >= 6:
+    ans += (((N//2)*(N//2-1)*(N//2-2))//6)*6
+    ans += ((((N+1)//2)*((N+1)//2-1)*((N+1)//2-2))//6)*6
+elif K%2 == 0:
+  ans += ((N+K//2)//K)**3
+  ans += (N//K)**3
+else:
+  ans += (N//K)**3
 
-for i in range(n):
-  dp[(i+1)%n] = dp[i]
-  for j in range(n):
-    if dp[(i+1)%n][j] > dp[i][(j-1)%n]+s[(j-1)%n]:
-      dp[(i+1)%n][j] = dp[i][(j-1)%n]+s[(j-1)%n]
-
-for i in range(n):
-  print(dp[n-1][i])
+print(ans)

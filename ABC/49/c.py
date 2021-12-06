@@ -17,17 +17,21 @@ def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
 
-n = II()
-s = LI()
-t = LI()
+S = I()
 
-dp = [t] + [[0]*n for _ in range(n-1)]
+while S != "":
+  if S[-5:] == "dream":
+    S = S[:-5]
+  elif S[-5:] == "erase":
+    S = S[:-5]
+  elif S[-7:] == "dreamer":
+    S = S[:-7]
+  elif S[-6:] == "eraser":
+    S = S[:-6]
+  else:
+    break
 
-for i in range(n):
-  dp[(i+1)%n] = dp[i]
-  for j in range(n):
-    if dp[(i+1)%n][j] > dp[i][(j-1)%n]+s[(j-1)%n]:
-      dp[(i+1)%n][j] = dp[i][(j-1)%n]+s[(j-1)%n]
-
-for i in range(n):
-  print(dp[n-1][i])
+if S == "":
+  print("YES")
+else:
+  print("NO")

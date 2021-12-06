@@ -15,15 +15,19 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 #行列
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 
-n = II()
-ans = list("indeednow")
-ans.sort()
+s = I()
 
-for i in range(n):
-  s = SI()
-  s.sort()
-
-  if ans == s:
-    print("YES")
-  else:
-    print("NO")
+if s == "WBWBWWBWBWBWWBWBWWBW":
+  print("Do")
+elif s == "WBWWBWBWBWWBWBWWBWBW":
+  print("Re")
+elif s == "WWBWBWBWWBWBWWBWBWBW":
+  print("Mi")
+elif s == "WBWBWBWWBWBWWBWBWBWW":
+  print("Fa")
+elif s == "WBWBWWBWBWWBWBWBWWBW":
+  print("So")
+elif s == "WBWWBWBWWBWBWBWWBWBW":
+  print("La")
+else:
+  print("Si")

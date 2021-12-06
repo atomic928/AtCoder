@@ -16,3 +16,10 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+s = [I() for _ in range(4)]
+ans = ["H","2B","3B","HR"]
+ans.sort()
+s.sort()
+
+print("Yes" if s == ans else "No")

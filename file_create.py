@@ -37,3 +37,12 @@ import shutil
 #   f = open(path, 'w')
 #   shutil.copyfile(origin, path)
 #   f.close
+
+'''tech ful'''
+# for i in range(1, 11):
+#   path = './techful/mobpro/0{}.py'.format(i)
+#   origin = 'temple.py'
+
+#   f = open(path, 'w')
+#   shutil.copyfile(origin, path)
+#   f.close
