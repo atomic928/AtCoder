@@ -16,3 +16,14 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+s = SI()
+if len(set(s)) == 1:
+  print("Weak")
+  exit()
+  
+if (int(s[0])+1)%10 == int(s[1]) and (int(s[1])+1)%10 == int(s[2]) and (int(s[2])+1)%10 == int(s[3]):
+  print("Weak")
+  exit()
+  
+print("Strong")

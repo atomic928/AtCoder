@@ -16,3 +16,11 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+a,b = MI()
+if 0 < a and b == 0:
+  print("Gold")
+elif a == 0 and 0 < b:
+  print("Silver")
+else:
+  print("Alloy")

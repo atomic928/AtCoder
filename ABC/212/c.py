@@ -21,3 +21,10 @@ n,m = MI()
 a = LI()
 b = LI()
 
+a = sorted(list(set(a)))
+b = sorted(list(set(b)))
+
+a_mi = a[0]
+b_mi = b[0]
+mi = abs(a_mi-b_mi)
+
