@@ -16,3 +16,18 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+n,x = MI()
+la = LLI(n)
+ls = [1]
+
+for i in range(n):
+  ls2 = []
+  l = la[i][0]
+  a = la[i][1:]
+  for j in a:
+    for k in ls:
+      ls2.append(j*k)
+  ls = ls2.copy()
+  
+print(ls.count(x))

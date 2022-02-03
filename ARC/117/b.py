@@ -16,3 +16,15 @@ def LI(): return list(MI())
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+n = II()
+a = LI()
+
+a.sort()
+
+ans = a[0]+1
+
+for i in range(n-1):
+  ans *= a[i+1]-a[i]+1
+  
+print(ans%(10**9+7))

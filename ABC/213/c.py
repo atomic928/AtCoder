@@ -17,23 +17,29 @@ def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
 
-from itertools import accumulate
-
-h,w,n = MI()
-gyou = []
-retu = []
-
-for _ in range(n):
-  a,b = MI()
-  gyou.append(a)
-  retu.append(b)
-
-g_indices = [*range(h)]
-r_indices = [*range(w)]
-sorted_g_indices = sorted(g_indices,reverse=True, key = lambda i: -gyou[i])
-sorted_r_indices = sorted(r_indices,reverse=True, key = lambda i: -retu[i])
-sorted_g = [gyou[i] for i in sorted_g_indices]
-sorted_r = [retu[i] for i in sorted_r_indices]
-
-for i in range(n):
+from operator import itemgetter
+from collections import defaultdict
   
+h,w,n = MI()
+ab = LLI(n)
+ab_c = ab.copy()
+row = defaultdict(int)
+col = defaultdict(int)
+
+ab_c.sort(key=itemgetter(1))
+same = 0
+for i in range(n):
+  if col[str(ab_c[i][1])] == 0:
+    col[str(ab_c[i][1])] = i+1-same
+  else:
+    same += 1
+
+ab_c.sort(key = itemgetter(0))
+same = 0
+for i in range(n):
+  if row[str(ab_c[i][0])] == 0:
+    row[str(ab_c[i][0])] = i+1-same
+  else:
+    same += 1
+for i in range(n):
+  print(row[str(ab[i][0])], col[str(ab[i][1])])

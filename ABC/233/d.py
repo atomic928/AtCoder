@@ -16,3 +16,18 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+from collections import defaultdict
+from itertools import accumulate
+
+n,k = MI()
+a = LI()
+ans = 0
+dic = defaultdict(int)
+p = [0] + list(accumulate(a))
+
+for i in p:
+  ans += dic[i]
+  dic[i+k] += 1
+
+print(ans)

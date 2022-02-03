@@ -16,3 +16,17 @@ def LI(): return list(MI())
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+n = II()
+
+#y_nがTrueの数
+ans = 1
+
+for i in range(n):
+  s = I()
+  if s == "OR":
+    #y_nがFlaseの場合でも、x_nがTrueなら良いので、その分の数を足す
+    ans += 2**(i+1)
+    
+print(ans)
+

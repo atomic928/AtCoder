@@ -16,3 +16,13 @@ def LI(): return list(MI())
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+s = SI()
+
+ans = 0
+ 
+for i in range(len(s)-1):
+  if s[i+1] != s[i]:
+    ans += 1
+    
+print(ans)
