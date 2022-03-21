@@ -1,3 +1,4 @@
+from collections import defaultdict
 import sys
 
 #input()
@@ -16,3 +17,21 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+n = II()
+a = LI()
+b = LI()
+
+
+half_match = 0
+perfect_match = 0
+
+for i in range(n):
+  if a[i] == b[i]: 
+    perfect_match += 1
+  if a[i] in set(b): 
+    half_match += 1
+  
+
+print(perfect_match)
+print(half_match-perfect_match)

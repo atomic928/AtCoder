@@ -1,3 +1,4 @@
+from multiprocessing.connection import answer_challenge
 import sys
 
 #input()
@@ -16,3 +17,28 @@ def LI(): return list(map(int, sys.stdin.readline().rstrip().split()))
 def LLI(rows_number): return [LI() for _ in range(rows_number)]
 #文字の行列
 def LSI(rows_number): return [SI() for _ in range(rows_number)]
+
+n, x = MI()
+s = SI()
+
+isE = x%2
+if not isE: isE = 2
+ans = isE
+
+tbcount = 0
+
+for i in range(n):
+  if s[i] == "U":
+    tbcount -= 1
+    ans //= 2
+  elif s[i] == "L":
+    tbcount += 1
+    ans *= 2
+  else:
+    tbcount += 1
+    ans = ans*2+1
+
+if x-isE != 0:    
+  ans += (x-isE)*2**tbcount
+
+print(ans)
