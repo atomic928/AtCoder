@@ -30,13 +30,13 @@ import shutil
 #   f.close
 
 '''典型90'''
-for i in range(1, 91):
-  path = './典型90問/0{}.py'.format(i)
-  origin = 'temple.py'
+# for i in range(1, 91):
+#   path = './典型90問/0{}.py'.format(i)
+#   origin = 'temple.py'
 
-  f = open(path, 'w')
-  shutil.copyfile(origin, path)
-  f.close
+#   f = open(path, 'w')
+#   shutil.copyfile(origin, path)
+#   f.close
 
 '''tech ful'''
 # for i in range(1, 11):
@@ -46,3 +46,28 @@ for i in range(1, 91):
 #   f = open(path, 'w')
 #   shutil.copyfile(origin, path)
 #   f.close
+
+'''paiza'''
+for i in range(1, 101):
+  path = './paiza/S/0{}.py'.format(i)
+  origin = 'temple.py'
+
+  f = open(path, 'w')
+  shutil.copyfile(origin, path)
+  f.close
+
+for i in range(1, 101):
+  path = './paiza/A/0{}.py'.format(i)
+  origin = 'temple.py'
+
+  f = open(path, 'w')
+  shutil.copyfile(origin, path)
+  f.close
+  
+for i in range(1, 101):
+  path = './paiza/B/0{}.py'.format(i)
+  origin = 'temple.py'
+
+  f = open(path, 'w')
+  shutil.copyfile(origin, path)
+  f.close
